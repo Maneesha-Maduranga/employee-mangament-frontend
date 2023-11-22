@@ -7,12 +7,11 @@ import { Employee } from '../models/employee.model';
   providedIn: 'root',
 })
 export class EmployeesService {
-  
   private baseUrl = 'https://localhost:5000/api/';
 
   constructor(private http: HttpClient) {}
 
   getAllEmployees(): Observable<Employee[]> {
-    return this.http.get<Employee[]>(`${this.baseUrl}/employees`);
+    return this.http.get<Employee[]>(`${this.baseUrl}employees`);
   }
 }
