@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Employee } from 'src/app/models/employee.model';
+import { EmployeesService } from 'src/app/services/employees.service';
 
 @Component({
   selector: 'app-employee-add',
@@ -14,7 +15,9 @@ export class EmployeeAddComponent {
     department: '',
   };
 
+  constructor(private empService: EmployeesService) {}
+
   onSubmit() {
-    console.log(this.employee);
+    this.empService.addEmployee(this.employee).subscribe();
   }
 }
